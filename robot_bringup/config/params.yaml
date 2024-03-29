@@ -1,0 +1,22 @@
+/**:
+    ros__parameters:
+      video_device: "/dev/video0"
+      framerate: 10.0
+      #io_method: "mmap"
+      frame_id: "camera"
+      pixel_format: "yuyv2rgb"  # see usb_cam/supported_formats for list of supported formats
+      image_width: 1024
+      image_height: 576
+      camera_name: "test_camera"
+      #camera_info_url: "package://robot_bringup/config/camera_info.yaml"
+      brightness: 0
+      contrast: 32
+      saturation: 64
+      sharpness: 2
+      gain: 0
+      auto_white_balance: true
+      white_balance: 4600
+      autoexposure: true
+      exposure: 156
+      autofocus: false
+      focus: -1
