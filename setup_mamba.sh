@@ -4,7 +4,7 @@
 set timeout 1
 
 # Spawn the shell script
-spawn bash Mambaforge-Linux-x86_64.sh
+spawn bash /root/Mambaforge-Linux-x86_64.sh
 
 # Loop to send newline character 20 times
 for {set i 0} {$i < 170} {incr i} {
