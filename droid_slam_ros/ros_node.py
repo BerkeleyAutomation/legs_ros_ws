@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+# DUMMY ROS NODE TO TEST DROID SLAM ROS INTEGRATION
 from sensor_msgs.msg import Image, CompressedImage,CameraInfo
 from geometry_msgs.msg import Pose,Point,Quaternion
 from lifelong_msgs.msg import ImagePose  # Make sure to import your custom ImagePose message

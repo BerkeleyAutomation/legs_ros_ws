@@ -30,20 +30,18 @@ include_directories(include)
 
 include_directories(include ${OpenCV_INCLUDE_DIRS})
 
-add_executable(uncompressed_realsense_image_transport_node src/uncompressed_realsense_image_transport_node.cpp)
-target_link_libraries(uncompressed_realsense_image_transport_node
+add_executable(synced_image_transport_node src/synced_image_transport_node.cpp)
+target_link_libraries(synced_image_transport_node
   cv_bridge::cv_bridge
   image_transport::image_transport
   opencv_highgui
   rclcpp::rclcpp
 )
 
-add_executable(uncompressed_synced_image_transport_node src/uncompressed_synced_image_transport_node.cpp)
-target_link_libraries(uncompressed_synced_image_transport_node
-  cv_bridge::cv_bridge
-  image_transport::image_transport
-  opencv_highgui
-  rclcpp::rclcpp
+# Install executables
+install(
+  TARGETS synced_image_transport_node
+  RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
 add_executable(uncompressed_zed_realsense_image_transport_node src/uncompressed_zed_realsense_image_transport_node.cpp)
@@ -54,16 +52,8 @@ target_link_libraries(uncompressed_zed_realsense_image_transport_node
   rclcpp::rclcpp
 )
 
-add_executable(manual_splat_collection_node src/manual_splat_collection_node.cpp)
-target_link_libraries(manual_splat_collection_node
-  cv_bridge::cv_bridge
-  image_transport::image_transport
-  opencv_highgui
-  rclcpp::rclcpp
-)
-
 install(
-  TARGETS uncompressed_zed_realsense_image_transport_node uncompressed_synced_image_transport_node manual_splat_collection_node uncompressed_realsense_image_transport_node
+  TARGETS uncompressed_zed_realsense_image_transport_node
   RUNTIME DESTINATION lib/${PROJECT_NAME}
 )
 
@@ -71,162 +61,12 @@ install(
 ament_python_install_package(${PROJECT_NAME})
 # Install Python executables
 install(PROGRAMS
-  scripts/image_visualization.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/collect_images_for_nerf.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/manual_splat_collection_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/manual_realsense_splat_collection_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/img_depth_img_folder_to_rostopic.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/folder_image_publisher.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/manual_left_zed_realsense_splat_collection_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/enter_key_publisher_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/color_image_compression_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/arducam_right_compressed_converter.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/get_aruco_pose_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/nerf_collection_pose.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/realsense_compressed_converter.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/realsense_uncompression_compression.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/new_realsense_compression_uncompression.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/compress_realsense_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/arducam_left_compressed_converter.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/image_pose_filtering.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/4_arducam_compressed_converter.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/aruco_detector_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/calibrate_extrinsics_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/uncompressed_synced_image_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/aruco_pose_calc_node.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/find_relative_cam_poses.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/save_images_for_calibration.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/save_images_for_calibration_vid_stream.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/compare_arucos.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/3_arducam_compressed_converter.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/3_arducam_compressed_converter_test.py
-  DESTINATION lib/${PROJECT_NAME}
-)
-
-install(PROGRAMS
-  scripts/view_4_cam.py
+  scripts/auto_splat_sync_collector_node.py
   DESTINATION lib/${PROJECT_NAME}
 )
 
 install(DIRECTORY
   launch
-  DESTINATION share/${PROJECT_NAME}
-)
-
-install(DIRECTORY
-  config
   DESTINATION share/${PROJECT_NAME}
 )
 
