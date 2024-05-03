@@ -16,7 +16,7 @@ import os
 class Droid:
     def __init__(self, args):
         super(Droid, self).__init__()
-        full_weights = os.path.join(args.datapath,'../../../..',args.weights)
+        full_weights = os.path.join(args.datapath,args.weights)
         self.load_weights(full_weights)
         self.args = args
         self.disable_vis = args.disable_vis

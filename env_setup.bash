@@ -37,6 +37,8 @@ pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --extra-index-url https
 conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit -y
 pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 pip install nerfstudio
+cd ~/legs_ws/src/droid_slam_ros
+python setup.py install
 
 # Step 4: Setup ROS2 Humble with Mamba environment: https://robofoundry.medium.com/using-robostack-for-ros2-9bb52ca89c12 and https://robostack.github.io/GettingStarted.html
 conda config --env --add channels conda-forge

@@ -64,6 +64,8 @@ pip install torch==2.0.1+cu118 torchvision==0.15.2+cu118 --extra-index-url https
 conda install -c "nvidia/label/cuda-11.8.0" cuda-toolkit -y
 pip install ninja git+https://github.com/NVlabs/tiny-cuda-nn/#subdirectory=bindings/torch
 pip install nerfstudio
+cd ~/legs_ws/src/droid_slam_ros
+python setup.py install
 ```
 
 ### Step 4: Setup ROS2 Humble with Mamba environment: https://robofoundry.medium.com/using-robostack-for-ros2-9bb52ca89c12 and https://robostack.github.io/GettingStarted.html
@@ -244,3 +246,6 @@ colcon build
 ros2 run droid_slam_ros multi_ptcloud_d455_2zed_global_real_droid_subscriber_node_prime.py
 ```
 To verify things are working, you should be able to open a Viser window in the browser and see the SLAM happening in realtime. Everytime you want to run the global bundle adjustment, make sure the robot isn't moving and hit the spacebar in the bundle adjust node terminal.
+
+## TODOS
+So currently, the droid slam node has the image size and intrinsics hardcoded. You will have to change these manually by hand, we will automate this process soon so it comes from a camera info topic.

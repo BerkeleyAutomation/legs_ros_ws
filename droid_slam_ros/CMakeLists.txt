@@ -28,6 +28,16 @@ install(PROGRAMS
 )
 
 install(PROGRAMS
+  scripts/convert_grocery_store_to_bag.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(PROGRAMS
+  scripts/grocery_store_global_real_droid_subscriber_node_prime.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+install(PROGRAMS
   scripts/view_multi_compressed_bag.py
   DESTINATION lib/${PROJECT_NAME}
 )
