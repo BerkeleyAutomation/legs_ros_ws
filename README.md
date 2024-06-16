@@ -245,3 +245,7 @@ colcon build
 ros2 run droid_slam_ros multi_ptcloud_d455_2zed_global_real_droid_subscriber_node_prime.py
 ```
 To verify things are working, you should be able to open a Viser window in the browser and see the SLAM happening in realtime. Everytime you want to run the global bundle adjustment, make sure the robot isn't moving and hit the spacebar in the bundle adjust node terminal.
+
+## Errors
+If you try to build the ROS2 workspace and see this error: CMake Error at /opt/ros/humble/share/rosidl_typesupport_c/cmake/get_used_typesupports.cmake:35 (message): No 'rosidl_typesupport_c' found.
+Make soure you have "source /opt/ros/humble/setup.bash" in your .bashrc. You can also try "sudo apt-get install ros-humble-rosidl-typesupport-c".
