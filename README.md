@@ -1,5 +1,5 @@
 # LEGS
-Hi! Welcome to the ROS2 workspace setup for LEGS. This README details how to setup the ROS2 environment with Droid SLAM and how to collect data and get Image-Pose correspondances for our hardware setup with 2 left and right facing Zed2s and a front facing Realsense D455. However, hopefully things should be clear enough to adapt to whatever depth camera hardware you are using. Hopefully, you can read more about this in our paper (IROS 2024 hopefully ;)
+Hi! Welcome to the ROS2 workspace setup for LEGS. This README details how to setup the ROS2 environment with Droid SLAM and how to collect data and get Image-Pose correspondances for our hardware setup with 2 left and right facing Zed2s and a front facing Realsense D455. However, hopefully things should be clear enough to adapt to whatever depth camera hardware you are using. Hopefully, you can read more about this in our IROS 2024 paper linked below
 
 ## Prerequesites
 Computer with Ubuntu 22.04 and GPU with at least 20 GB RAM (this is where we have observed the max spike occurs). If you have a smaller GPU, things should still work, you just have to downsample your images, which could mitigate quality but it shouldn't significantly make things worse.
