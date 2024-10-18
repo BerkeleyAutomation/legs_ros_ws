@@ -249,3 +249,12 @@ To verify things are working, you should be able to open a Viser window in the b
 ## Errors
 If you try to build the ROS2 workspace and see this error: CMake Error at /opt/ros/humble/share/rosidl_typesupport_c/cmake/get_used_typesupports.cmake:35 (message): No 'rosidl_typesupport_c' found.
 Make soure you have "source /opt/ros/humble/setup.bash" in your .bashrc. You can also try "sudo apt-get install ros-humble-rosidl-typesupport-c".
+
+## Bibtex
+If you find this useful, please cite the paper!
+<pre id="codecell0">@article{yu2024language,
+&nbsp;author = {Yu, Justin and Hari, Kush and Srinivas, Kishore and El-Refai, Karim and Rashid, Adam and Kim, Chung Min and Kerr, Justin and Cheng, Richard and Irshad, Muhammad Zubair and Balakrishna, Ashwin and Kollar, Thomas and Goldberg, Ken},
+&nbsp;title = {Language-Embedded Gaussian Splats (LEGS): Incrementally Building Room-Scale Representations with a Mobile Robot},
+&nbsp;booktitle = {International Conference on Intelligent Robots and Systems (IROS)},
+&nbsp;year = {2024},
+} </pre>
